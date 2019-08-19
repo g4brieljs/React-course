@@ -1,4 +1,4 @@
-# Course-React
+# React Course
 Progress of the course React Hooks, and redux context
 
 # What is React or Reactjs?
