@@ -22,3 +22,256 @@ Declarative views make your code more predictable and easier to debug.
 
 Udemy.com | Platzi.com | Asana.com | Facebook.com | Twitter | Instagram | Microsoft | Outlook | Spotfy| Twitter | Dropbox
 
+# Javascript Essential 
+
+-Var let and Const
+-Scope in Javascript
+-Template Strings in Javascript
+-Function and other types of function 
+-Function with parameters
+-Arrow Functions
+-Object in Javascript
+-Object Literal
+-Object Constructor
+-Prototypes
+-Object DEstructuring
+-Object literal Enhacemnt
+-Function in a Object
+-Arrays/.map and Object.keys
+-Spread Operator
+-.Filter/.find/.reduce
+-Promise
+-Promise with AJAX
+-Class
+-Module ES6
+
+# Introduction a webpack
+
+**Webpack** is a bundler of modules for apps modern Javascript.
+
+With webpack you can incorporate dependencies such as css files, javsacript modules, other javascript libraries in your project, you will also have a local server with live reload.
+
+In addtion to transpiling your modern javascript code to previous versions of javascript for greater compatibility with BABEL.
+
+![webpack](https://github.com/g4brieljs/React-course/blob/master/React-course/webpack.png)
+
+**Etry** un punto de entrada que especifica que módulo debe utilizar webpack para comenzar a crear la gráfica de dependencias, webpack se encargará de saber que dependencias tiene este módulo.
+Por lo normal el punto de entrada y la configuración se guardan en un archivo, aunque ne la versión 4 ya no es nesesario.
+
+**Outpu** la salida le dirá  webpack, en que parte debe almacenar el bundle que se ha creado.
+Normalmente la entrada esta en una carpeta llamada src / y la salida a una carpeta llamada dist/ 
+
+**Loaders** webpack solo entiende arcvhivos javascript, pero con lo loaders puedes cargar otros formatos como sass, less, imagenes, html.
+
+importar archivos css es algo que gulp o grunt no pueden hacer y que le da mucho mayor pode r awebpack sobre estas herramientas.
+
+**test** que le dice al archivo webpack que archivo debe ser transformados.
+**use** que le dice al archivo webpack que loader estamos utilizando para este archivo.
+
+**plugins** LOs loaders nos permiten utilizar distinto tipos de módulos y otros formatos. pero los plugins realizan otro tipo de tareas tales como optimizar el bundle, administración avanzada de los assets.
+
+Un plugin se instala via NPM y se importa al archivo webpack con la palabra require();
+
+**Package JSON** con este file you can share you dependencies with other programer.
+
+`npm init`
+
+**Install dependencies**
+
+`npm instal webpack --save-dev`
+
+**--save-dev** es para que se almacenar en tu package.JSON
+
+# First bundle
+
+```
+const path = require('path');
+
+// entry / output / loaders / 
+
+module.exports = {
+    // entradas
+    entry: './src/index.js',
+    // salidas
+    output: {
+        // crea el archivo
+        filename: 'bundle.js',
+        // crea la carpeta
+        path: path.join(__dirname, '/dist')
+
+    }
+}
+```
+
+`node_modules\.bin\webpack src\index.js`
+
+# Create a script on Webpack
+
+``` 
+"scripts": {
+    "build" : "webpack --mode development"
+  },
+```
+
+# transpillar the code with babel
+
+`$ sudo npm install --save-dev babel-core babel-loader babel-preset-env`
+`$ sudo npm install -D babel-loader @babel/core @babel/preset-env`
+
+```
+// loaders
+    module: {
+        //tests
+        rules: [
+            {
+                test: /\.js$/,
+                //excludes esto escluira la carpeta node_modules
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/env']
+                    }
+                }
+            }
+        ]
+    }
+```
+
+# watch in Webpack
+
+`"watch": "webpack --w --mode development"` 
+
+# Import css on Webpack
+
+Install these dependencies:
+-`npm instal --save-dev style-loader css-loader`
+
+```
+ // other rule
+            {
+                // esto busca css y le aplica el loader
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    }
+                ]
+            }
+```
+
+`import '.../css/style.css';`
+
+// Esto improta la hoja  de estilo dentro del modulo, esto no se puede con js vanilla, se necesita webpack y los modulos necesarios
+
+# Import sass with webpack
+
+`npm install --save-dev sass-loader`
+`npm install -g node-sass`
+`npm install --save-dev node-sass`
+
+```
+ // other rule
+    {
+        // esto busca css y le aplica el loader
+        test: /\.scss$/,
+        use: [
+            {loader: 'style-loader'},
+            {loader: 'css-loader'},
+            {loader: 'sass-loader'}
+        ]
+    }
+```
+
+# Create multiple bundles
+
+```
+ // entradas
+    entry: {
+        index: './src/js/index.js',
+        aboutUs: './src/js/aboutUs.js'
+    },
+    // salidas
+    output: {
+        // crea el archivo
+        filename: '[name].bundle.js',
+        // crea la carpeta
+        path: path.join(__dirname, '/dist')
+    },
+```
+
+
+# Add common chunks 
+
+The common chunks, permiten que las librerias, o frameworks que agreguemos a nuestro webpack se vayan al common bundle, es como el archivo central, entonces los otros .js bundle seran para los codigos que generan cada archivo
+
+```
+// common Chunks
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                //
+                commons: {
+                    // que archivos vamos a utilizar // todo lo que este en node modules
+                    // esto es una expresion regular para que todo el codigo necesario entre al bundle, en este caso webpack
+                    test: /[\\/]node_modules[\\/]/,
+                    // el nombre
+                    name: 'common',
+                    // que todo se guarde en el archivo de common
+                    chunks: 'all'
+                    
+                }
+            }
+        }
+    }
+```
+
+# add webpack dev server 
+
+`npm install --save-dev webpack-dev-server`
+
+```
+ // web dev server
+    devServer: {
+        // esto son parametros exclusivos de web dev server
+        // El primero es la carpeta donde se van a cargar la carpeta dist
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        // the port
+        port: 9000
+    },
+```
+
+# First project with webpack
+
+![firstWebpack](https://github.com/g4brieljs/React-course/blob/master/React-course/firstwebpack.png)
+
+# Install plugin 
+
+This plugin va a generar los archivos html y se complementa con el webpack dev server
+`npm install --save-dev html-webpack-plugin`
+```
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+ plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'src/index.html'
+        })
+    ]
+```
+
+# React Essentials
+
+**Install React-app** you need:
+-Nodejs
+-NPM
+
+Acces a carpet in with cmd or terminal write 
+-`$ npm install -g create-react-app`
+-`$ create-react-app myapp`
+If you have a error, you can use
+-`npm install`

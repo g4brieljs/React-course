@@ -1,0 +1,30 @@
+{
+  "name": "2-2-webpack",
+  "version": "1.0.0",
+  "description": "File for to learn webpack",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode production",
+    "build": "webpack --mode development",
+    "watch": "webpack --w --mode development",
+    "devServer": "webpack-dev-server --mode development --open"
+  },
+  "author": "g4brieljs",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
