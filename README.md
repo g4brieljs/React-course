@@ -84,7 +84,7 @@ Un plugin se instala via NPM y se importa al archivo webpack con la palabra requ
 
 # First bundle
 
-```
+```javascript
 const path = require('path');
 
 // entry / output / loaders / 
@@ -107,7 +107,7 @@ module.exports = {
 
 # Create a script on Webpack
 
-``` 
+``` javascript
 "scripts": {
     "build" : "webpack --mode development"
   },
@@ -118,7 +118,7 @@ module.exports = {
 `$ sudo npm install --save-dev babel-core babel-loader babel-preset-env`
 `$ sudo npm install -D babel-loader @babel/core @babel/preset-env`
 
-```
+```javascript
 // loaders
     module: {
         //tests
@@ -147,7 +147,7 @@ module.exports = {
 Install these dependencies:
 -`npm instal --save-dev style-loader css-loader`
 
-```
+```javascript
  // other rule
             {
                 // esto busca css y le aplica el loader
@@ -173,7 +173,7 @@ Install these dependencies:
 `npm install -g node-sass`
 `npm install --save-dev node-sass`
 
-```
+```javascript
  // other rule
     {
         // esto busca css y le aplica el loader
@@ -188,7 +188,7 @@ Install these dependencies:
 
 # Create multiple bundles
 
-```
+```javascript
  // entradas
     entry: {
         index: './src/js/index.js',
@@ -208,7 +208,7 @@ Install these dependencies:
 
 The common chunks, permiten que las librerias, o frameworks que agreguemos a nuestro webpack se vayan al common bundle, es como el archivo central, entonces los otros .js bundle seran para los codigos que generan cada archivo
 
-```
+```javascript
 // common Chunks
     optimization: {
         splitChunks: {
@@ -233,7 +233,7 @@ The common chunks, permiten que las librerias, o frameworks que agreguemos a nue
 
 `npm install --save-dev webpack-dev-server`
 
-```
+```javascript
  // web dev server
     devServer: {
         // esto son parametros exclusivos de web dev server
@@ -253,7 +253,7 @@ The common chunks, permiten que las librerias, o frameworks que agreguemos a nue
 
 This plugin va a generar los archivos html y se complementa con el webpack dev server
 `npm install --save-dev html-webpack-plugin`
-```
+```javascript
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
  plugins: [
@@ -275,3 +275,149 @@ Acces a carpet in with cmd or terminal write
 -`$ create-react-app myapp`
 If you have a error, you can use
 -`npm install`
+
+## React without JSX
+
+```javascript
+import React from 'react';
+
+function App() {
+  return (
+    React.createElement(
+      'h1',
+      {id: 'heading', className: 'heading'},
+      'Hola mundo'
+    )
+  );
+}
+
+export default App;
+```
+
+## React with JSX
+
+```javascript
+import React, {Fragment} from 'react';
+
+function App() {
+//ADD CODE JAVASCRIPT
+
+const client ={
+  name: 'Gabriel Jimenez',
+  work: 'Web developer'
+}
+
+  return (
+    <Fragment>
+      <h1>{client.name}</h1>
+      <p>{client.work}</p>
+    </Fragment>
+  );
+}
+
+export default App;
+```
+
+## What is Component in REACT?
+
+**Component** te van a permitir serpar tu código y los elementos de tu interfaz en pequeñas piezas re-utilizables que estarán asoladas una de otras.
+- Los componentes son como funciones en Javascript
+- Puedes pasarle datos a un componente por medio de algo llamado Props.
+- **Importante** es que en React los datos fluyen del componente padre al hijo.
+
+## Two components / Hooks
+### Class component
+```javascript
+class App extends Component{
+    render(){
+        return(
+            <p>Hellow World</p>
+        )
+    }
+}
+```
+
+### Functional component
+```
+const App = props => (
+    <p>Hellow World</p>
+);
+```
+**Ventajas**
+- Fácil de crear, leer
+- Menos código
+- Fácil de probar
+- "Mejor performance"
+**Desventajas**
+- No se puede usar los ciclos de vidas (ComponentDidMount, ComponentDidUpdate)
+- No tienen state
+- No puedes usar refs
+- Si necesitan caulquiera de estas 3, crear un class Component
+
+### Hooks
+Te permite usar State con function
+
+
+## First Class Component
+**render** es obligatorio en los class Component
+
+**{ Component }** esto permite no utilizar esto:
+`extends React.Component`
+
+```javascript
+import React, { Component } from 'react';
+
+
+class FirstComponent extends Component {
+state = { }  
+    render(){
+        return ( 
+            <div>
+                <h1>First Component</h1>
+            </div>
+        );
+    }
+}
+
+export default FirstComponent;
+```
+
+## Converting Class Component in a Stateless Functional Component
+
+```javascript
+// Use this form for create components Parents
+function SecondComponent(){
+    return ( 
+            <h1>First Component</h1>
+    );
+}
+
+// For create Methods
+const SonSecond = () => ( 
+    <h1>Son</h1> 
+);
+```
+
+## Props in you component
+**Props** nos permiten pasar datos entre componentes.
+- Un prop se pasan del padre al hijo, nuca del hijo al padre.
+
+**Pasar String**
+`name = "Juan"`
+
+**Pasar a var**
+`date = {var}`
+
+## State in you Component
+Un estado es parecido a los props, pero son privados y se controla totalmente por el componente.
+
+
+
+
+**Dato cursioso**
+Para muchas personas era complicado el uso de las clases
+
+**s**
+
+#Axios
+Apis more easy
