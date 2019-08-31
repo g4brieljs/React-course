@@ -409,15 +409,126 @@ const SonSecond = () => (
 `date = {var}`
 
 ## State in you Component
-Un estado es parecido a los props, pero son privados y se controla totalmente por el componente.
+Un **estado** es parecido a los props, pero son privados y se controla totalmente por el componente.
+**Importante** los State siempre debe ser un objeto cuando se utilizan los class component.
 
+```javascript
+ state = {
+        products : [
+            { id: 1, name: 'Camisa ReactJS', precio: 30 },
+            { id: 2, name: 'Camisa VueJS', precio: 30 },
+            { id: 3, name: 'Camisa AngularJS', precio: 30 },
+        ]
+    }
+```
+**Other form**
+```js
+constructor(){
+    super(){
+    this.state = {
+        products : [
+                { id: 1, name: 'Camisa ReactJS', precio: 30 },
+                { id: 2, name: 'Camisa VueJS', precio: 30 },
+                { id: 3, name: 'Camisa AngularJS', precio: 30 },
+        ]
+        
+    }
+}
+```
 
+## Lifecycle Methods to a Class component
+Son methods or functions que se ejecutan automaticamente en el componente.
+**Mala práctica** Es mala práctica llamarlos.
+- Se actualizan automaticamente
+- Solo existen en el Class component
+- Son eventos que ocurren desde que le componente es creado hasta que es destruido.
 
+### ComponentDidMount
+Cuando se termina de cargar el componente.
 
-**Dato cursioso**
-Para muchas personas era complicado el uso de las clases
+```js
+class App extends Component {
+    componentDidMount(){
+        console.log('El documento esta listo');
+    }
+    render(){
+        return(
+            <p>Hola mundo</p>
+        )
+    }
+}
+```
+**APIS** las APIS se llamán desde el componentDidMount.
 
-**s**
+### ComponentWillMount 
+El componente se cargará, pero aún no esta listo, este se usa para cargar algo antes de que se monte le Componente.
 
-#Axios
-Apis more easy
+```js
+class App extends Component {
+    componentWillMount(){
+        console.log('El documento aun no esta listo');
+    }
+    render(){
+        return(
+            <p>Hola mundo</p>
+        )
+    }
+}
+```
+
+### ComponentDidUpdate
+Cuando algo cambia en el componente lo actualiamos con este método de ciclo de vida.
+```js
+class App extends Component {
+    componentDidUpdate(){
+        console.log('Algo cambio en el componente');
+    }
+    render(){
+        return(
+            <p>Hola mundo</p>
+        )
+    }
+}
+```
+**Car shop** por ejemplo añadimos un producto al carrito de compras, necesitamos actualizar.
+
+### ComponentWillUnmount
+Te permite hacer algo antes de que se reemplaze un componente viejo por uno nuevo.
+```js
+class App extends Component {
+    componentWillUnmount(){
+        console.log('Un nuevo componente ha sido cargado y este será reemplazado, pero puedes ejecutar algo antes de que eso pase');
+    }
+    render(){
+        return(
+            <p>Hola mundo</p>
+        )
+    }
+}
+```
+
+**Importante** Los componentes del ciclo de vida tienen este orden:
+
+**Primero** 
+```js 
+- componenteWillMount(){} 
+```
+**Segundo** 
+```js
+- render()
+```
+**Tercero** 
+```js
+- componentDidMount(){}
+``` 
+
+**Actualizas el componente**
+```js
+- componentDidUpdate(){}
+```
+Y luego el render() para visualizar los cambios.
+
+**Importante** Un state son inmutables, se cambian con el `this.setState({})` en los class Component.
+
+# Firsth project with Reactjs
+
