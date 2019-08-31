@@ -53,7 +53,7 @@ With webpack you can incorporate dependencies such as css files, javsacript modu
 
 In addtion to transpiling your modern javascript code to previous versions of javascript for greater compatibility with BABEL.
 
-![webpack](https://github.com/g4brieljs/React-course/blob/master/webpack.png)
+![webpack](https://github.com/g4brieljs/React-course/blob/master/2-2-Webpack/webpack.png)
 
 **Etry** un punto de entrada que especifica que módulo debe utilizar webpack para comenzar a crear la gráfica de dependencias, webpack se encargará de saber que dependencias tiene este módulo.
 Por lo normal el punto de entrada y la configuración se guardan en un archivo, aunque ne la versión 4 ya no es nesesario.
@@ -247,7 +247,7 @@ The common chunks, permiten que las librerias, o frameworks que agreguemos a nue
 
 # First project with webpack
 
-![firstWebpack](https://github.com/g4brieljs/React-course/blob/master/firstproject.png)
+![firstWebpack](https://github.com/g4brieljs/React-course/blob/master/2-2-Webpack/firstproject.png)
 
 # Install plugin 
 
