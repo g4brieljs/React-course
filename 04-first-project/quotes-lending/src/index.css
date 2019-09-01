@@ -1,0 +1,41 @@
+html{
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  height: 100%;
+  background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+}
+
+h1{
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+.container{
+  background-color: white;
+  padding: 1rem!important;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  min-height: 80vh;
+}
+
+form{
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+form label{
+    text-align: center;
+    font-size: 2rem;
+}
