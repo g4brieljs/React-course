@@ -530,6 +530,6 @@ Y luego el render() para visualizar los cambios.
 
 **Importante** Un state son inmutables, se cambian con el `this.setState({})` en los class Component.
 
-# Firsth project with Reactjs
+# First project with Reactjs
 
 ![firstreact](https://github.com/g4brieljs/React-course/blob/master/04-first-project/quotes-lending/quote.png)
