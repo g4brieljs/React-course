@@ -10,13 +10,17 @@ class Formulario extends Component {
     // Metodo para calcular preio
     calcularPrecio = (e) => {
         e.preventDefault();
-        console.log('Enviando...');
+
+        // Destructuring
+        const {cantidad, plazo} = this.state;
+        
+        this.props.datosPrestamos(cantidad, plazo);
     }
 
     // method para actualizar el state
     actualizarState = (e) => {
         // leer en valor de los form
-        console.log(e.target.value);
+        // console.log(e.target.value);
 
         // Aplicando un destrecturing
         const {name, value} = e.target;

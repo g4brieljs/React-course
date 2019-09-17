@@ -577,7 +577,41 @@ Un evento en el form `onSubmit`
 
 Tenmos varias opciones:
 
--
+- Props
+- Contex
+- Redux: Es bueno, pero si tienes muchas fuentes de datos, props es la más cómodas.
 
+## Props
+
+Siempre envías Props desde el componente Padre hacia el componente más pequeño.
+
+Un prop consiste en dos partes:
+- Primero su identificador
+- El nombre la funcion, o los datos que pasaras, variables, datos del state, etc.
+
+```js
+// primero pass el metodo del padre
+method = () =>{
+    console.log('hello, this is parent component');
+}
+```
+```js
+// Luego pasamos el este metodo al componente hijo
+<Component 
+    method = {this.method}
+/>
+```
+```js
+// Luego en nuestro componente pasamos esa prop al metodo del componente que querramos renderizar en el HTML
+this.props.method();
+```
+
+## Helper function
+
+Se usan para no crear componentes muy grandes, se recomienda siempre hacerlos pequños.
+
+Su fin también es que sean re-utilizados.
+
+Creas un helper, puede ser una function que haga alguna operación, y la exportas a tu app, luego con destruturing pasas esa funcion a tu componente principal, donde esta tu prop, que en mi caso es donde lo necesito.
 
 ![firstreact](https://github.com/g4brieljs/React-course/blob/master/04-first-project/quotes-lending/quote.png)
