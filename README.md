@@ -532,4 +532,52 @@ Y luego el render() para visualizar los cambios.
 
 # First project with Reactjs
 
+**Importante** en React para leer datos de los formularios debemos utilizar los métodos que trae React como:
+
+- onChange
+- onClick 
+etc
+
+**Importante** también hay otra manera que son los res.
+
+More (https://es.reactjs.org/docs/forms.html)
+
+**Cambiar los estados** tenemeos dos formas, la no recomendada y la recomendada:
+
+- No se recomienda de esta manera
+```js
+this.state.cantidad = e.target.value;
+```
+
+Recomendada
+```js
+this.setState({
+            [name] : value
+        })
+```
+
+Algo importante, es que si agregamos {} (llaves) en nuestro componente, sea class o function, será código Javascript, me recuerda mucho a php, que si agregas `<?php echo="Hola, mundo" ?>` adentro del HTML podrás hacer más dinamico tu sitio web.
+
+Algo para tomar en cuenta 
+
+De esta manera esperamos que se carguen los datos, hasta que el user le de Submit, envia los datos.
+```js
+<form onSubmit={this.metodo}>
+```
+Y de esta manera se ejecuta de manera inmediata.
+```js
+<input disabled={this.metodo()}>
+```
+
+El state es lo que nos permite crear una app interactiva.
+
+Un evento en el form `onSubmit`
+
+**¿Cómo enviar datos de un componente a otro?**
+
+Tenmos varias opciones:
+
+-
+
+
 ![firstreact](https://github.com/g4brieljs/React-course/blob/master/04-first-project/quotes-lending/quote.png)

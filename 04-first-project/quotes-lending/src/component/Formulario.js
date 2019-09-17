@@ -1,20 +1,47 @@
 import React, { Component } from 'react';
 
 class Formulario extends Component {
+    // todolo que sea REACT, arriba
     state = {
         cantidad: '',
         plazo: ''
     }   
 
-    actualizarState = () => {
-        console.log('escribiendo')
+    // Metodo para calcular preio
+    calcularPrecio = (e) => {
+        e.preventDefault();
+        console.log('Enviando...');
+    }
+
+    // method para actualizar el state
+    actualizarState = (e) => {
+        // leer en valor de los form
+        console.log(e.target.value);
+
+        // Aplicando un destrecturing
+        const {name, value} = e.target;
+
+        // actualizar el state
+        this.setState({
+            [name] : Number(value)
+        })
+    }
+
+    // Method para habilitar el Submit
+    habilitarSubmit = () =>{
+        // Aplicar destructuring
+        const { cantidad, plazo } = this.state;
+        // Read vars
+        const noValido = !cantidad || !plazo;
+        // return
+        return noValido;
     }
 
     render() { 
         return ( 
-            <form>
+            <form onSubmit={this.calcularPrecio}>
                 <div>
-                    <label>Cantidad del prestamo:</label>
+                    <label>Cantidad del prestamo: </label>
                     <input 
                         onChange={this.actualizarState} 
                         type="number" 
@@ -25,7 +52,7 @@ class Formulario extends Component {
                 </div>
                 <div>
                     <label>Plazo para pagar:</label>
-                    <select name="plazo" className="u-full-width">
+                    <select onChange={this.actualizarState} name="plazo" className="u-full-width">
                         <option value="">Seleccionar</option>
                         <option value="3">3 Meses</option>
                         <option value="6">6 Meses</option>
@@ -34,7 +61,11 @@ class Formulario extends Component {
                     </select>
                 </div>
                 <div>
-                    <input type="submit" value="Calcular" className="u-full-width button-primary" />
+                    <input 
+                        disabled = {this.habilitarSubmit()}
+                        type="submit" 
+                        value="Calcular" 
+                        className="u-full-width button-primary" />
                 </div>
             </form>
          );
