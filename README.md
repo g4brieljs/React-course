@@ -1,7 +1,17 @@
 # React Course
 Progress of the course React Hooks, and redux context
 
-# What is React or Reactjs?
+**Summary Of course:**
+
+I am Gabriel Jiménez a cybersecurity student and I love programming, so I started to learn Javascript, to be able to develop projects and web applications, and I decided to create this summary to rethink the concepts, if you really want to learn and understand the most demanding language in the world, go to link of the repository and adquire this magnificent course. Let's go!
+
+## Table of Contents
+
+- [What is React or Reactjs?](#what-is-react-or-reactjs)
+- [What is a Component?](#components)
+- [Javascript Essential](#javascript-essential)
+
+# What is React or Reactjs
 
 Is a library of Javascript, to create user interfaces, react work in Front-end, to create Webs apps.
 React is development for Facebook.
@@ -24,26 +34,26 @@ Udemy.com | Platzi.com | Asana.com | Facebook.com | Twitter | Instagram | Micros
 
 # Javascript Essential 
 
--Var let and Const
--Scope in Javascript
--Template Strings in Javascript
--Function and other types of function 
--Function with parameters
--Arrow Functions
--Object in Javascript
--Object Literal
--Object Constructor
--Prototypes
--Object DEstructuring
--Object literal Enhacemnt
--Function in a Object
--Arrays/.map and Object.keys
--Spread Operator
--.Filter/.find/.reduce
--Promise
--Promise with AJAX
--Class
--Module ES6
+- Var let and Const
+- Scope in Javascript
+- Template Strings in Javascript
+- Function and other types of function 
+- Function with parameters
+- Arrow Functions
+- Object in Javascript
+- Object Literal
+- Object Constructor
+- Prototypes
+- Object DEstructuring
+- Object literal Enhacemnt
+- Function in a Object
+- Arrays/.map and Object.keys
+- Spread Operator
+- Arrays methods .Filter/.find/.reduce
+- Promise
+- Promise with AJAX
+- Class
+- Module ES6
 
 # Introduction a webpack
 
@@ -532,6 +542,10 @@ Y luego el render() para visualizar los cambios.
 
 # First project with Reactjs
 
+![firstreact](https://github.com/g4brieljs/React-course/blob/master/04-first-project/quotes-lending/quote.png)
+
+## Development of project:
+
 **Importante** en React para leer datos de los formularios debemos utilizar los métodos que trae React como:
 
 - onChange
@@ -614,4 +628,71 @@ Su fin también es que sean re-utilizados.
 
 Creas un helper, puede ser una function que haga alguna operación, y la exportas a tu app, luego con destruturing pasas esa funcion a tu componente principal, donde esta tu prop, que en mi caso es donde lo necesito.
 
-![firstreact](https://github.com/g4brieljs/React-course/blob/master/04-first-project/quotes-lending/quote.png)
+## Object literal Enhacement para agregar al State
+
+**Importante** React
+
+```js
+  datosPrestamos = (cantidad, plazo) => {
+    const total = calcularTotal(cantidad, plazo);
+    
+    // Agregar al state, el total, con sus argumentos
+    this.setState({
+      // La nueva vs de js, el object literal Enhacement
+      total, 
+      cantidad,
+      plazo
+    });
+
+  }
+```
+
+## Stateless functional component
+
+Diferencias entre Class y Stateless funtional
+
+Class component heredan Component, el Stateless functional no.
+
+En los Stateless funcitional no se usa this.props, se usa props directamente.
+
+Los Stateless functional Component no usan State, esto es lo más obvio.
+
+Y támpoco tienen el ciclo de vida.
+
+¿Cuáles son las ventajas?
+
+Son más faciles de mantener.
+
+**Cómo pasar props**
+
+`const Component = (props) => {console.log(props);}`
+
+## Cargar componentes condicionalmente
+
+Ejemplo:
+
+Una navegacion para un user autenticado y uno para el que no lo este.
+
+Autenticado = Accede al dashboard.
+NoAutenticado = Login / Register
+
+```js
+ // creas una variable que guardara los componentes
+ let component;
+
+ // Creamos la condicion
+ if(user === 'Autenticado'){
+     componente = <Dashboard />;
+ }else if{
+     component = <LoginRegister />;
+ }
+ // Imprimimos nuestra variable en nuestro render();
+ render(
+     <div>
+        <h1>Pagina web</h1>
+            {component}
+    </div>
+)
+```
+
+# Finish from First project with Reactjs
