@@ -6,8 +6,9 @@ import './skeleton.css';
 
 // Components
 import Formulario from './component/Formulario';
-// Helpers para el Formulario
+// Helpers para el componetne Formulario
 import {calcularTotal} from './helpers';
+// Components
 import Resultado from './component/Resultado';
 import Mensajes from './component/Mensajes';
 import Spinner from './component/Spinner';

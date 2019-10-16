@@ -696,3 +696,12 @@ NoAutenticado = Login / Register
 ```
 
 # Finish from First project with Reactjs
+----------------------------------------------
+
+# Second project with Reactjs - Reading forms with react
+
+Tenemos varias opciones, la más fácil podría ser la siguiente, pero cada persona tiene su manera de programar.
+
+React cuenta con los siguientes eventos, los cueales comienzan con `on`, los utilizados en este proyecto son los siguientes:
+
+- onChange
