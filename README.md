@@ -700,8 +700,13 @@ NoAutenticado = Login / Register
 
 # Second project with Reactjs - Reading forms with react
 
+![firstreact](https://github.com/g4brieljs/React-course/blob/master/05-second-project/citas.png)
+
 Tenemos varias opciones, la más fácil podría ser la siguiente, pero cada persona tiene su manera de programar.
 
 React cuenta con los siguientes eventos, los cueales comienzan con `on`, los utilizados en este proyecto son los siguientes:
 
 - onChange
+- onSubmit
+
+
