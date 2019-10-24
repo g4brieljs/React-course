@@ -40,10 +40,6 @@ class NuevaCita extends Component {
             this.setState({
                 error: true
             });
-        }else{
-            this.setState({
-                error: false
-            })
 
             return;
         }
@@ -51,6 +47,7 @@ class NuevaCita extends Component {
         // generar objeto con los datos
         const nuevaCita = {...this.state.cita};
         nuevaCita.id = uuid();
+
          // Agregar al state
          this.props.crearNuevaCita(nuevaCita);
 

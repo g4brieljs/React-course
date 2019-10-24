@@ -709,4 +709,22 @@ React cuenta con los siguientes eventos, los cueales comienzan con `on`, los uti
 - onChange
 - onSubmit
 
+With a arrow function we can to wait what be activated
 
+```js
+onClick={() => evento(parametros)}
+```
+
+Los spread operators, nos permiten duplicar los arreglos, en estos casos en los states
+
+```js
+...state
+```
+
+**Importante** Nunca se le debe hacer cambios directamente al state, siempre que se modifique es bueno hacerle una copia.
+
+**Importante** Si quieres pasar algo que tienen los props, de un componente a otro, tienes que pasar por cada uno de ellos, esto se soluciona con algo que se conoce como **context**.
+
+## Methods of cycle of life in Reactjs
+
+`componentDidMount`
