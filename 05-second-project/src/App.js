@@ -41,8 +41,16 @@ class App extends Component {
      // tomar una copia del state
      const citasActuales = [...this.state.citas];
     
-     // Utilizar filter para poder tomar elemneto id delo array
-    const citas = citasActuales.filter(cita => cita.id !== id)
+     // Utilizar filter para poder tomar elemneto id del array - Al decirle que cita.id no es igual al id, esto nos tomara del state todos los que no sean iguales y es como si eliminaramos el seleccionado
+    const citas = citasActuales.filter(cita => cita.id !== id);
+
+    // ejemplo: filter tomara todo los que no sean iguales al id seleccionado
+    /*
+    const citas = [
+      {id: 1, cita: 'Juanito'},
+      {id: 2, cita: 'Pedrito'}
+    ] 
+    */
 
 
      // Actualiar el state 

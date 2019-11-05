@@ -727,4 +727,24 @@ Los spread operators, nos permiten duplicar los arreglos, en estos casos en los 
 
 ## Methods of cycle of life in Reactjs
 
-`componentDidMount`
+**componentDidMount** Una vez el componente es completado se ejecutará el evento que tengamos.
+**componentDidUpdate** Si hay algún cambio este se ejecutará.
+
+## Arrays Methods
+
+**Filter** Este Array Methods nos permite seleccionar un objeto del arreglo y devolvernos el mismo o todos los que sean iguales, y si comparas con un negativo te devolverá todos los que sea difeferentes al selccionado.
+
+## LocalStorage and JSON.stringify / JSON.parse
+
+**JSON.stringify**  esta propiedad de javascript los que nos permite es transformar un arreglo o objeto a un String, es decir a una cadena de texto.
+
+**JSON.parse** este lo que nos permite es transformar una cadena de texto (string) y los covierte en un array o un objeto JSON.
+
+## App Documentation with PropTypes in reactjs
+
+PropTypes nos permite definir que tipo de datos esperan los componentes o props, y si son requeridos o no.
+
+Component.propTypes = {
+    props : PropTypes.string.isRequired
+}
+
