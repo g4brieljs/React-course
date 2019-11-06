@@ -744,7 +744,26 @@ Los spread operators, nos permiten duplicar los arreglos, en estos casos en los 
 
 PropTypes nos permite definir que tipo de datos esperan los componentes o props, y si son requeridos o no.
 
+```js
 Component.propTypes = {
     props : PropTypes.string.isRequired
 }
+```
+
+# Finish from Second project with Reactjs
+----------------------------------------------
+
+# Third project with Reactjs - Apis and Search | NewsApi.org
+
+![Thirdreact](https://github.com/g4brieljs/React-course/blob/master/06-third-project/search.png)
+
+## Project with APi NewsApi
+
+Al consumir una API se utiliza el Ciclo de vide `componentDidMount(){}`
+
+Para extraer los datos podemos utilizar:
+
+- Axios
+- Fetch
+- Async Await
 
