@@ -64,18 +64,14 @@ class App extends Component {
   render() { 
     return ( 
       <div className="container">
-        <Header 
-          titulo='Sistema de reservación de citas con REACT'
-        />
-        
         <div className="row">
-          <div className="col-md-6 mx-auto">
+          <div className="col-md-6 mx-auto lado-imagen">
+          </div>  
+
+          <div className="card px-5 col-md-6 ">
             <NuevaCita 
               crearNuevaCita={this.crearNuevaCita}
             />
-          </div>  
-
-          <div className="mt-5 col-md-6 mx-auto">
             <ListaCitas 
               citas={this.state.citas}
               eliminarCita={this.eliminarCita}

@@ -767,3 +767,16 @@ Para extraer los datos podemos utilizar:
 - Fetch
 - Async Await
 
+Example with Async Await
+
+```js
+async componentDidMount(){
+    const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ApiKey`;
+    const res = await fetch(url);
+    const data = await res.json();
+    
+    console.log(data);
+}
+```
+
+You can create a method para utilizarlo en el componentDidMount

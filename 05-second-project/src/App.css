@@ -20,3 +20,14 @@
 .App-link {
   color: #09d3ac;
 }
+
+.lado-imagen{
+  background-color: red;
+}
+
+@media (min-width: 1200px){
+  .container {
+    max-width: 100%;
+    height: 100vh;
+  }
+}

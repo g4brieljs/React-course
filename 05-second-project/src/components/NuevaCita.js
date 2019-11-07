@@ -62,8 +62,8 @@ class NuevaCita extends Component {
     render() { 
         const { error } = this.state;
         return ( 
-            <div className="card mt-5 py-5">
-                <div className="card-body">
+            <div className="mt-5 py-5">
+                <div className="body">
                     <h2 className="card-title text-center mb-5">
                         Llenar el formulario para crear una nueva cita
                     </h2>
